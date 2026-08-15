@@ -2,7 +2,7 @@
 
 A beautiful, highly-customizable avatar gallery and upload picker component for Filament PHP.
 
-![Avatar Picker Demo](screen/picker.gif)
+![Avatar Picker Demo](./screen/picker.gif)
 
 ## Features
 
