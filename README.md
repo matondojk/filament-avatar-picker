@@ -20,11 +20,10 @@ A beautiful, highly-customizable avatar gallery and upload picker component for 
 composer require matondojk/filament-avatar-picker
 ```
 
-2. Run the migrations. This will automatically verify and add the `avatar_url` field to your `users` table:
-
-```bash
-php artisan migrate
-```
+> **Important:** Run the migrations! This will automatically verify and add the `avatar_url` field to your `users` table without breaking existing data:
+> ```bash
+> php artisan migrate
+> ```
 
 3. Publish the assets (this will copy the default curated avatars to your public directory):
 
