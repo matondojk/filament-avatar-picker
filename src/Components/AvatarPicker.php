@@ -4,7 +4,7 @@ namespace MatondoJK\FilamentAvatarPicker\Components;
 
 use Filament\Forms\Components\Field;
 use Filament\Actions\Action;
-use Filament\Forms\Components\Tabs;
+use Filament\Schemas\Components\Tabs;
 use Filament\Forms\Components\ViewField;
 use Filament\Forms\Components\FileUpload;
 
