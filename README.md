@@ -6,6 +6,7 @@ A beautiful, highly-customizable avatar gallery and upload picker component for 
 
 ## Features
 
+- **Component First**: Use it as a form field (`AvatarPicker::make('avatar')`) anywhere in your Filament forms.
 - **Curated Avatar Gallery**: Display a gorgeous grid of pre-defined avatars.
 - **Custom Uploads**: Isolated secure directory for user uploads (`custom-avatars`).
 - **Multi-language Support**: Fully translated into 12 languages (including Arabic, Spanish, French, Portuguese, Chinese, etc.).
@@ -20,83 +21,32 @@ A beautiful, highly-customizable avatar gallery and upload picker component for 
 composer require matondojk/filament-avatar-picker
 ```
 
-> **Important:** Run the migrations! This will automatically verify and add the `avatar_url` field to your `users` table without breaking existing data:
-> ```bash
-> php artisan migrate
-> ```
-
-3. Publish the assets (this will copy the default curated avatars to your public directory):
+2. Publish the assets (this will copy the default curated avatars to your public directory):
 
 ```bash
 php artisan vendor:publish --tag=filament-avatar-picker-assets
 ```
 
-## Setup
-
-### Model Preparation
-
-Your `User` model must implement the `HasAvatar` interface from Filament. You must also add `avatar_url` to the `$fillable` array.
-
-```php
-<?php
-
-namespace App\Models;
-
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
-use Filament\Models\Contracts\HasAvatar;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Storage;
-
-#[Fillable(['name', 'email', 'password', 'avatar_url'])]
-#[Hidden(['password', 'remember_token'])]
-class User extends Authenticatable implements HasAvatar
-{
-    /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
-
-    public function getFilamentAvatarUrl(): ?string
-    {
-        return $this->avatar_url ? Storage::disk('public')->url($this->avatar_url) : null;
-    }
-}
-```
-
-### Plugin Registration
-
-Register the plugin inside your Panel Service Provider (e.g., `app/Providers/Filament/AdminPanelProvider.php`):
-
-```php
-use MatondoJK\FilamentAvatarPicker\AvatarPickerPlugin;
-
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        // ...
-        ->plugin(AvatarPickerPlugin::make());
-}
-```
-
 ## Usage
 
-Once registered, the plugin will automatically replace Filament's default `EditProfile` page with the new custom page containing the avatar component. Just navigate to your profile in the Filament dashboard, click on the avatar, and the beautiful gallery modal will appear!
+Use the `AvatarPicker` component inside any of your Filament forms (such as in a Resource or a custom Page). It acts just like a standard field and automatically handles both file uploads and gallery selection.
+
+```php
+use MatondoJK\FilamentAvatarPicker\Components\AvatarPicker;
+
+public static function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            AvatarPicker::make('avatar')
+                ->label('Profile Picture'), // You can define any label you want!
+                
+            // ... other fields
+        ]);
+}
+```
+
+The component automatically saves the chosen string (either a gallery filename or the uploaded file path) directly to the database column you specify (`avatar` in the example above). No forced migrations or table changes!
 
 ## Publishing Views & Translations
 
