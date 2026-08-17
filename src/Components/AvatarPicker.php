@@ -30,8 +30,8 @@ class AvatarPicker extends FileUpload
                     ->label('Choose Avatar')
                     ->extraAttributes(['style' => 'display: none !important;', 'id' => $actionId])
                     ->extraModalWindowAttributes(['style' => 'border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid rgba(0,0,0,0.05); overflow: hidden;'])
-                    ->modalHeading(new \Illuminate\Support\HtmlString('<div class="text-center pt-4 pb-2"><h2 class="text-gray-900 dark:text-white" style="font-size: 28px; font-weight: 700; line-height: 1.2;">' . __('filament-avatar-picker::avatar.title') . '</h2><p class="text-gray-500 dark:text-gray-400" style="font-size: 14px; font-weight: 400; margin-top: 8px;">' . __('filament-avatar-picker::avatar.description') . '</p></div>'))
-                    ->modalWidth('4xl')
+                    ->modalHeading(new \Illuminate\Support\HtmlString('<div class="text-center pt-2 sm:pt-4 pb-1 sm:pb-2"><h2 class="text-gray-900 dark:text-white" style="font-size: clamp(1.25rem, 4vw, 1.75rem); font-weight: 700; line-height: 1.2;">' . __('filament-avatar-picker::avatar.title') . '</h2><p class="text-gray-500 dark:text-gray-400" style="font-size: clamp(0.875rem, 2vw, 1rem); font-weight: 400; margin-top: 8px;">' . __('filament-avatar-picker::avatar.description') . '</p></div>'))
+                    ->modalWidth('2xl')
                     ->modalSubmitActionLabel(__('filament-avatar-picker::avatar.apply_button'))
                     ->form([
                         Tabs::make('Tabs')

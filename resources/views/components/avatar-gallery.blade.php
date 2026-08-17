@@ -40,8 +40,8 @@
         loadMore() { this.limit += 50; }
     }">
         <div 
-            style="height: 65vh; max-height: 600px; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 12px; justify-content: center; align-content: start;"
-            class="p-4 custom-scrollbar"
+            style="min-height: 250px; max-height: 50vh; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 12px; justify-content: center; align-content: start;"
+            class="p-2 sm:p-4 custom-scrollbar"
             @scroll="if ($el.scrollTop + $el.clientHeight >= $el.scrollHeight - 20) loadMore()"
         >
             <template x-for="avatar in visibleAvatars" :key="avatar">
