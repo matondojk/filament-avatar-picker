@@ -6,6 +6,6 @@ return [
     'gallery_tab' => '图库',
     'upload_tab' => '上传',
     'apply_button' => '应用',
-    'no_avatars' => '图库中未找到头像。', 1); font-weight: 500; cursor: pointer;\">点击这里</span>',
-    'upload_prompt' => '选择一个头像或<span style=\"color: rgb(var(--primary-600)); font-weight: 500; text-decoration: underline; cursor: pointer;\">点击这里</span>',
+    'no_avatars' => '图库中未找到头像。',
+    'upload_prompt' => '选择一个头像或<span style="color: rgb(var(--primary-600)); font-weight: 500; text-decoration: underline; cursor: pointer;">点击这里</span>',
 ];
