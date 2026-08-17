@@ -40,7 +40,7 @@
         loadMore() { this.limit += 50; }
     }">
         <div 
-            style="min-height: 250px; max-height: 50vh; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 12px; justify-content: center; align-content: start;"
+            style="min-height: 250px; max-height: 50vh; overflow-y: auto; overflow-x: hidden; display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 12px; justify-content: center; align-content: start;"
             class="p-2 sm:p-4 custom-scrollbar"
             @scroll="if ($el.scrollTop + $el.clientHeight >= $el.scrollHeight - 20) loadMore()"
         >
@@ -49,7 +49,7 @@
                     type="button" 
                     @click="state = avatar"
                     :style="state === avatar 
-                        ? 'aspect-ratio: 1/1; width: 100%; max-width: 100px; border: 4px solid rgb(var(--primary-600)); transform: scale(1.05); box-shadow: 0px 4px 10px rgba(0,0,0,0.2); transition: all 0.2s;' 
+                        ? 'aspect-ratio: 1/1; width: 100%; max-width: 100px; border-style: solid; border-width: 4px; border-color: #f97316; border-color: var(--primary-600); border-color: rgb(var(--primary-600)); transform: scale(1.05); box-shadow: 0px 4px 10px rgba(0,0,0,0.2); transition: all 0.2s;' 
                         : 'aspect-ratio: 1/1; width: 100%; max-width: 100px; border: 1px solid #e5e7eb; transition: all 0.2s;'"
                     class="relative rounded-full overflow-hidden shrink-0 focus:outline-none mx-auto"
                 >
