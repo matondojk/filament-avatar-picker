@@ -7,5 +7,5 @@ return [
     'upload_tab' => 'Загрузить',
     'apply_button' => 'Применить',
     'no_avatars' => 'В галерее не найдено аватаров.',
-    'upload_prompt' => 'Выберите аватар или <span style="color: rgb(var(--primary-600)); font-weight: 500; text-decoration: underline; cursor: pointer;">нажмите здесь</span>',
+    'upload_prompt' => 'Выберите аватар или <span class="filament-avatar-picker-browse-link">Нажмите здесь</span>',
 ];

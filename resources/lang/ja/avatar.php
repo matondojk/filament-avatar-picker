@@ -7,5 +7,5 @@ return [
     'upload_tab' => 'アップロード',
     'apply_button' => '適用',
     'no_avatars' => 'ギャラリーにアバターが見つかりません。',
-    'upload_prompt' => 'アバターを選択するか、<span style="color: rgb(var(--primary-600)); font-weight: 500; text-decoration: underline; cursor: pointer;">ここをクリック</span>してください',
+    'upload_prompt' => 'アバターを選択するか、<span class="filament-avatar-picker-browse-link">ここをクリック</span>してください',
 ];
