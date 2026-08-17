@@ -48,6 +48,55 @@ public static function form(Form $form): Form
 
 The component automatically saves the chosen string (either a gallery filename or the uploaded file path) directly to the database column you specify (`avatar` in the example above). No forced migrations or table changes!
 
+### Setting up the User Model
+
+For the avatar to work properly globally in the Filament panel (such as in the topbar), your `User` model must implement the `HasAvatar` interface from Filament. 
+
+**Important:** You must create your own string field in your database (e.g., `avatar_url` or `avatar`) via your own migration to save the avatar path. This package does NOT include any migrations because table structure should remain in your control.
+
+Here is exactly how your User model should look:
+
+```php
+<?php
+
+namespace App\Models;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Database\Factories\UserFactory;
+use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
+
+#[Fillable(['name', 'email', 'password', 'avatar_url'])]
+#[Hidden(['password', 'remember_token'])]
+class User extends Authenticatable implements HasAvatar
+{
+    /** @use HasFactory<UserFactory> */
+    use HasFactory, Notifiable;
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->avatar_url ? Storage::disk('public')->url($this->avatar_url) : null;
+    }
+}
+```
 ## Publishing Views & Translations
 
 If you wish to modify the blade views or translations, you can publish them:
