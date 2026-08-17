@@ -18,7 +18,7 @@ class AvatarPicker extends FileUpload
         $this->avatar()
             ->disk('public')
             ->directory('avatars')
-            ->placeholder(__('filament-avatar-picker::avatar.upload_prompt'))
+            ->placeholder(new \Illuminate\Support\HtmlString(__('filament-avatar-picker::avatar.upload_prompt')))
             ->extraAttributes([
                 'class' => 'avatar-filepond-wrapper',
                 'x-init' => "if(!document.getElementById('avatar-style')){ let s=document.createElement('style'); s.id='avatar-style'; s.innerHTML='.avatar-filepond-wrapper { cursor: pointer; } .avatar-filepond-wrapper .filepond--action-remove-item { position: absolute !important; top: auto !important; bottom: 0 !important; z-index: 50 !important; }'; document.head.appendChild(s); }",
@@ -50,7 +50,7 @@ class AvatarPicker extends FileUpload
                                             ->hiddenLabel()
                                             ->disk('public')
                                             ->directory('custom-avatars')
-                                            ->placeholder(__('filament-avatar-picker::avatar.upload_prompt'))
+                                            ->placeholder(new \Illuminate\Support\HtmlString(__('filament-avatar-picker::avatar.upload_prompt')))
                                             ->extraAttributes([
                                                 'x-on:filepond-processfile' => "setTimeout(() => \$el.closest('.fi-modal').querySelector('button[type=\"submit\"]').click(), 300)"
                                             ]),

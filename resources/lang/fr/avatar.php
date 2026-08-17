@@ -7,4 +7,5 @@ return [
     'upload_tab' => 'Télécharger',
     'apply_button' => 'Appliquer',
     'no_avatars' => 'Aucun avatar trouvé dans la galerie.',
+    'upload_prompt' => 'Sélectionnez un avatar ou <span class=\"text-primary-600 dark:text-primary-500\">cliquez ici</span>',
 ];
