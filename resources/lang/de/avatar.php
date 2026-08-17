@@ -7,5 +7,5 @@ return [
     'upload_tab' => 'Hochladen',
     'apply_button' => 'Anwenden',
     'no_avatars' => 'Keine Avatare in der Galerie gefunden.',
-    'upload_prompt' => 'Wählen Sie einen Avatar oder <span class=\"text-primary-600 dark:text-primary-500\">klicken Sie hier</span>',
+    'upload_prompt' => 'Wählen Sie einen Avatar oder <span style=\"color: rgba(var(--primary-600), 1); font-weight: 500; cursor: pointer;\">klicken Sie hier</span>',
 ];

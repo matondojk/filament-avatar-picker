@@ -7,5 +7,5 @@ return [
     'upload_tab' => 'अपलोड करें',
     'apply_button' => 'लागू करें',
     'no_avatars' => 'गैलरी में कोई अवतार नहीं मिला।',
-    'upload_prompt' => 'एक अवतार चुनें या <span class=\"text-primary-600 dark:text-primary-500\">यहां क्लिक करें</span>',
+    'upload_prompt' => 'एक अवतार चुनें या <span style=\"color: rgba(var(--primary-600), 1); font-weight: 500; cursor: pointer;\">यहां क्लिक करें</span>',
 ];

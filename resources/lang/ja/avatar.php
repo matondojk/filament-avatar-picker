@@ -7,5 +7,5 @@ return [
     'upload_tab' => 'アップロード',
     'apply_button' => '適用',
     'no_avatars' => 'ギャラリーにアバターが見つかりません。',
-    'upload_prompt' => 'アバターを選択するか、<span class=\"text-primary-600 dark:text-primary-500\">ここをクリック</span>してください',
+    'upload_prompt' => 'アバターを選択するか、<span style=\"color: rgba(var(--primary-600), 1); font-weight: 500; cursor: pointer;\">ここをクリック</span>してください',
 ];

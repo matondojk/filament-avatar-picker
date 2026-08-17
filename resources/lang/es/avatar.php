@@ -7,5 +7,5 @@ return [
     'upload_tab' => 'Subir',
     'apply_button' => 'Aplicar',
     'no_avatars' => 'No se encontraron avatares en la galería.',
-    'upload_prompt' => 'Selecciona un avatar o <span class=\"text-primary-600 dark:text-primary-500\">haz clic aquí</span>',
+    'upload_prompt' => 'Selecciona un avatar o <span style=\"color: rgba(var(--primary-600), 1); font-weight: 500; cursor: pointer;\">haz clic aquí</span>',
 ];
