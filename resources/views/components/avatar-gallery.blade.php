@@ -40,7 +40,7 @@
         loadMore() { this.limit += 50; }
     }">
         <div 
-            style="height: 65vh; max-height: 600px; overflow-y: auto; display: grid; grid-template-columns: repeat(7, 100px); gap: 6px; justify-content: center; align-content: start;"
+            style="height: 65vh; max-height: 600px; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 12px; justify-content: center; align-content: start;"
             class="p-4 custom-scrollbar"
             @scroll="if ($el.scrollTop + $el.clientHeight >= $el.scrollHeight - 20) loadMore()"
         >
@@ -49,9 +49,9 @@
                     type="button" 
                     @click="state = avatar"
                     :style="state === avatar 
-                        ? 'width: 100px; height: 100px; border: 4px solid var(--primary-600); transform: scale(1.05); box-shadow: 0px 4px 10px rgba(0,0,0,0.2); transition: all 0.2s;' 
-                        : 'width: 100px; height: 100px; border: 1px solid #e5e7eb; transition: all 0.2s;'"
-                    class="relative rounded-full overflow-hidden shrink-0 focus:outline-none"
+                        ? 'aspect-ratio: 1/1; width: 100%; max-width: 100px; border: 4px solid rgb(var(--primary-600)); transform: scale(1.05); box-shadow: 0px 4px 10px rgba(0,0,0,0.2); transition: all 0.2s;' 
+                        : 'aspect-ratio: 1/1; width: 100%; max-width: 100px; border: 1px solid #e5e7eb; transition: all 0.2s;'"
+                    class="relative rounded-full overflow-hidden shrink-0 focus:outline-none mx-auto"
                 >
                     <img :src="'/storage/' + avatar" alt="Avatar" class="w-full h-full object-cover">
                 </button>
